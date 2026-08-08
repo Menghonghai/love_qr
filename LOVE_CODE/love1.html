@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>សម្រាប់មនុស្សពិសេសរបស់ខ្ញុំ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Moul&family=Nokora:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ffe6eb 0%, #ffb3c6 100%);
+            min-height: 100vh;
+            font-family: 'Nokora', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            width: 90%;
+            max-width: 600px;
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(200, 50, 80, 0.2);
+            text-align: center;
+            z-index: 2;
+            position: relative;
+        }
+
+        h1 {
+            font-family: 'Moul', cursive;
+            color: #d63384;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .sweet-text {
+            font-size: 16px;
+            color: #4a5568;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            min-height: 80px;
+        }
+
+        .memory-gallery {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .memory-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 15px;
+            object-fit: cover;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .memory-img:hover {
+            transform: scale(1.05);
+        }
+
+        .quiz-section {
+            background: #fff0f3;
+            padding: 20px;
+            border-radius: 20px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .quiz-question {
+            font-size: 16px;
+            font-weight: bold;
+            color: #c9184a;
+            margin-bottom: 15px;
+        }
+
+        .quiz-btn {
+            background: #d63384;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: 'Nokora', sans-serif;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .quiz-btn:hover {
+            background: #b5179e;
+        }
+
+        #answer-text {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #2b2d42;
+            display: none;
+        }
+
+        .floating-heart {
+            position: absolute;
+            color: #ff4d6d;
+            font-size: 24px;
+            animation: floatUp 5s linear infinite;
+        }
+
+        .audio-player {
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) scale(0); opacity: 1; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>ផ្ញើជូនមនុស្សពិសេសរបស់បង</h1>
+        
+        <div class="sweet-text" id="typewriter"></div>
+
+        <div class="memory-gallery">
+            <img src="./assets/images/img1.jpg" alt="អនុស្សាវរីយ៍ ១" class="memory-img">
+            <img src="./assets/images/img2.jpg"  alt="អនុស្សាវរីយ៍ ២" class="memory-img">
+            <img src="./assets/images/img3.jpg"  alt="អនុស្សាវរីយ៍ ៣" class="memory-img">
+        </div>
+
+        <div class="quiz-section">
+            <div class="quiz-question">តើអូនស្រឡាញ់បងទេ?</div>
+            <button class="quiz-btn" onclick="showAnswer()">ចុចមើលចម្លើយ</button>
+            <div id="answer-text">ចម្លើយគឺ ស្រឡាញ់បងខ្លាំងបំផុតហ្មង! 💕</div>
+        </div>
+
+        <audio class="audio-player" controls autoplay loop>
+            <source src="./assets/audios/love——song.mp3" type="audio/mp3">
+            កម្មវិធីរុករករបស់អ្នកមិនគាំទ្រការចាក់អូឌីយ៉ូទេ។
+        </audio>
+    </div>
+
+    <script>
+        const text = "បងចង់ប្រាប់អូនថា អូនជាមនុស្សស្រីដែលមានន័យបំផុតក្នុងជីវិតបង។ ស្នេហា និងទំនុកចិត្តដែលអូនផ្តល់ឲ្យ ធ្វើឲ្យបងមានកម្លាំងចិត្តដើរទៅមុខជានិច្ច។ អរគុណសម្រាប់ភាពស្មោះត្រង់ និងក្តីស្រឡាញ់ដ៏បរិសុទ្ធមួយនេះ។ អរគុណដែលបានចូលមកក្នុងជីវិតមួយនេះ និងបានបង្កើតស្នាមញញឹមជារៀងរាល់ថ្ងៃ។ មិនថាមេឃស្រឡះ ឬមានព្យុះភ្លៀង បងតែងតែនៅទីនេះដើម្បីមើលថែ និងគាំទ្រអូនជានិច្ច។ ក្តីសុខរបស់អូន គឺជាបំណងប្រាថ្នាធំបំផុតរបស់បង! ❤️";
+        let index = 0;
+        
+        function typeEffect() {
+            if (index < text.length) {
+                document.getElementById("typewriter").innerHTML += text.charAt(index);
+                index++;
+                setTimeout(typeEffect, 60);
+            }
+        }
+        window.onload = typeEffect;
+
+        function showAnswer() {
+            document.getElementById("answer-text").style.display = "block";
+        }
+
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("floating-heart");
+            heart.innerHTML = "❤️";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+        setInterval(createHeart, 400);
+    </script>
+</body>
+</html>

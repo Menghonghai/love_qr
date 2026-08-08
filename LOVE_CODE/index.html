@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Someone Special ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #050508;
+            color: #fff;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        #page1 {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 1s ease-in-out, opacity 0.8s ease-in-out;
+        }
+
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .heart-trigger-container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.5s ease;
+        }
+
+        .heart-icon {
+            font-size: 80px;
+            color: #ff2a6d;
+            text-shadow: 0 0 20px #ff2a6d, 0 0 40px #ff2a6d, 0 0 80px #ff2a6d;
+            animation: pulse 1.2s infinite alternate;
+        }
+
+        .hint-text {
+            margin-top: 15px;
+            font-size: 1.1rem;
+            color: #ffffff;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            background: rgba(0, 0, 0, 0.6);
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 42, 109, 0.5);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.25); }
+        }
+
+        /* Effect Zoom-in នៅពេលចុច */
+        .zoom-in-active {
+            transform: scale(4);
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="page1">
+        <canvas id="matrixCanvas"></canvas>
+        <div class="heart-trigger-container" id="heartBtn">
+            <div class="heart-icon">❤️</div>
+            <div class="hint-text">ចុចលើរូបបេះដូងនេះ 💖</div>
+        </div>
+    </div>
+
+    <script>
+        // Matrix Falling Text Effect
+        const canvas = document.getElementById('matrixCanvas');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        const words = ["បងស្រឡាញ់អូនណាស់", "កាទ្រីត ","រាល់ពេលវេលាជាមួយអូន ","គឺជាកាដូដ៏មានតម្លៃបំផុត","នឹកអូនណាស់", "ចង់នៅក្បែរអូនណាស់", "YOU ARE MY EVERYTHING", "❤️"];
+        const fontSize = 26;
+        const columns = Math.floor(canvas.width / 120); 
+        const drops = Array(columns).fill(1);
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(5, 5, 8, 0.15)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#ff758c';
+            ctx.font = fontSize + 'px sans-serif';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = words[Math.floor(Math.random() * words.length)];
+                const x = i * 230;
+                const y = drops[i] * fontSize;
+
+                ctx.fillText(text, x, y);
+
+                if (y > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(drawMatrix, 50);
+
+        // Zoom-in & Redirect Logic
+        const heartBtn = document.getElementById('heartBtn');
+        const page1 = document.getElementById('page1');
+
+        heartBtn.addEventListener('click', () => {
+            // បង្កើត Effect Zoom in ជាមុនសិន
+            page1.classList.add('zoom-in-active');
+
+            // រង់ចាំ 0.8 វិនាទី (800ms) ឲ្យ Zoom-in ចប់ រួច Redirect ទៅ File ថ្មី
+            setTimeout(() => {
+                window.location.href = "love1.html"; // ផ្លាស់ប្តូរឈ្មោះ File HTML របស់អ្នកនៅទីនេះ
+            }, 800);
+        });
+    </script>
+</body>
+</html>
